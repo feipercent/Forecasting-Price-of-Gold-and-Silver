@@ -35,7 +35,7 @@ To identify stationarity quantitatively, dickey-fuller test was conducted to con
 
 ● Make Data Stationary
 
-By conducting check stationary, Observiously, the prices of gold and silver are not staionary. To make the data stationary, three different methods can be used, 1) Exponential Average, 2) Differencing, 3) Decomposing.
+By conducting check stationary, Observiously, the prices of gold and silver are not staionary. To make the data stationary, three different methods was used, 1) Exponential Average, 2) Differencing, 3) Decomposing.
 
 ### MODEL FORECASTING:
 
@@ -52,19 +52,17 @@ The prices of gold and silver are seasonality based on statioanary test. SARIMA 
 In the test data, the mean absolute percentage error was used as metric to evalaute the model performance. It showed that 0.96% and 1.85% and mean absolute percentage error were estimated for gold price and silver price. 
 
 ● SELECTION of BEST MODEL
-I MAPE as evaluation metric for models when comparing liner regression model and SARIMA model. The result shows that the MAPE of linear regression model is less than SARIMA model when predicting the price of silver. However, the MAPE of SARMA model is larger than the linear regression model when predicting the price of gold. In other word. The optimum model for predicting silver silver is linear regression, and the optimum model for predicting gold is SARIMA model.
 
-### FINDING TRENDS:
-
-I was trying to find the interesting trends in the price fluctuation. Interestingly for various mongth the prices of gold and silver in2019. Though there are no obvious trends in the data. The maximum price has always been March-April or September-October which falls during or just before the wedding season.
-
+Choosing MAPE as evaluation metric for models when comparing liner regression model and SARIMA model. The result shows that the MAPE of linear regression model is less than SARIMA model when predicting the price of silver. However, the MAPE of SARMA model is larger than the linear regression model when predicting the price of gold. In other word. The optimum model for predicting silver silver is linear regression, and the optimum model for predicting gold is SARIMA model.
 
 ### OBSERVATIONS and CONCLUSION:
 
-Finally, the predicted gold price with almost 0.44% Mean Absolute Percentage Error for linear regression model and 0.95% Mean Absolute Percentage Error with SARIMA model. For Silver, 0.6% and 1.85% Mean Absolute Percentage Error for linear regressio model and SARIMA model.
+I was trying to find the interesting trends in the price fluctuation. Interestingly for various mongth the prices of gold and silver in 2019. Though there are no obvious trends in the data. The maximum price has always been September-October which falls during or just before the wedding season.
 
-For future work, we can use and build upon our existing model to build a recommendation system suggesting the users the right time to buy and sell gold for people who take interest in investing in gold. What I found was that the trend of gold and silver are very close. Also, the peak price of gold and silver occured near the September, and the lowest price is near the middle of May. For the further analysis, for the potential investigation, we can collect all the historical data and analyze whether this patten was existing in every years. 
+The predicted gold price with almost 0.44% Mean Absolute Percentage Error for linear regression model and 0.95% Mean Absolute Percentage Error with SARIMA model. For Silver, 0.6% and 1.85% Mean Absolute Percentage Error for linear regressio model and SARIMA model.
 
-ALso we also can change the metrics of our model performance to select the best model depending on the business target. Or using grid search to find the optimum parameter for each model. 
+For future work, we can use and build upon our existing model to build a recommendation system suggesting the users the right time to buy and sell gold for people who take interest in investing in gold. What I found was that the trend of gold and silver are very close. Also, the peak price of gold and silver occured near the September, and the lowest price is near the middle of May. For the further analysis and potential investment, we can collect all the existing historical data and analyze whether we can find any potential investment.
+
+We also can change the metrics of our model performance to select the best model depending on the business target. Or using grid search to find the optimum parameter for each model. 
 
 Although ARIMA/SARIMA is commonly used model for rare metal (gold or silver) price prediciton, other existing research work also has been done to predict gold price using different models, such as Rolling and recursive neural network models by Antonino P. (https://www.sciencedirect.com/science/article/pii/S1042444X08000030) or Artificial Neural Network by Hossein M. (https://www.semanticscholar.org/paper/Modeling-Gold-Price-via-Artificial-Neural-Network-Mombeini-Yazdani-Chamzini/0fc93f118843be44345f3c9116793f3d824d4d85). These two papers can be interesting to take a look. 
