@@ -1,0 +1,25 @@
+1. Please download the historical prices and dates of gold and silver from these 2 URLs (Jan 2019 till now):
+
+ 
+
+•             https://www.investing.com/commodities/gold-historical-data
+
+•             https://www.investing.com/commodities/silver-historical-data
+
+ 
+
+and store them locally (in a file or database, as you see fit).
+
+
+2. Please then write a program that takes the following 3 command line arguments:
+
+•             Start date (in the format 2017-05-10)
+
+•             End date (in the format 2017-05-22)
+
+•             Commodity type (either "gold" or silver”)
+
+Then first describe the statistical properties of the data. Next, tell whether the data are stationary. Lastly, provide additional time series properties of interest, if any.
+
+
+3. Write a program to predict the price of the next 4 days. This program should internally use at least 2 forecasting models where the performance is evaluated. Please write up an explanation of how you judged the performance of the models and selected the best model.
