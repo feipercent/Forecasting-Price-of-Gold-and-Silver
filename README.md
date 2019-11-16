@@ -12,7 +12,7 @@ Each dataset contains seven columns: Date, Price, Open, High, Low, Vol., and Cha
 
 ### OBJECTIVE:
 
-The goal is to predict the prices of gold and silver in next four days, November 13~16, 2019. The above website can be used to check newly updated prices comparing with my predicitons. 
+The goal is to predict the prices of gold and silver in next four days, November 13~16, 2019, and use at least two model to predict the performance of models. The above website can be used to check newly updated prices comparing with my predicitons. 
 
 ### PREPROCESSING:
 
