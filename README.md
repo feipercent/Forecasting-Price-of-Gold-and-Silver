@@ -2,7 +2,7 @@
 
 ### DATASET:
 
-I have used 2 datasets for this, historic daily prices of gold and silver from below two URLS (January 01, 2019 till November 12, 2019). 
+Historic daily prices of gold and silver from below two URLS (January 01, 2019 till November 12, 2019). 
 
 • Gold data: https://www.investing.com/commodities/gold-historical-data
 
@@ -12,7 +12,7 @@ Each dataset contains seven columns: Date, Price, Open, High, Low, Vol., and Cha
 
 ### OBJECTIVE:
 
-The goal is to predict the prices of gold and silver in next four days, November 13~16, 2019, and use at least two model to predict the performance of models. The above website can be used to check newly updated prices comparing with my predicitons. 
+The goal of this project is to analyze the historical prices of gold and silver to predict the prices of gold and silver in next four days, November 13~16, 2019, and use at least two model to predict the performance of models.
 
 ### PREPROCESSING:
 
@@ -29,31 +29,30 @@ I used combinations of plots and tables in this part.
 
 ● Check Stationarity
 
-To check the stationarity of the data I first plotted the data along with the dates.
-Just by looking at the plot we can conclude that the data is non-stationary, since the mean values is not constant along time.
+To check the stationarity of the data, data along with the dates was ploted. Just by looking at the plot we can conclude that the data is non-stationary, since the mean values is not constant along time.
 
-To identify stationarity quantitatively, I performed the dickey-fuller test to confirm the stationarity. We can see the ADF statistic is higher than any of the critical values, and the p value is much greater than 0.05, so we cannot reject the null hypothesis that the data is non-stationary.
+To identify stationarity quantitatively, dickey-fuller test was conducted to confirm the stationarity. Basically, I interpret this result using the p-values, that is a p-value below a fixed threshold (e.g. 5%) indicates that we reject the null hypothesis(the time series is not stationary). Otherwise a p-value above that threshold indicates that we accept the null hypothesis.
 
 ● Make Data Stationary
 
-To make the data stationary, three different methods can be used, 1) Exponential Average, 2) Differencing, 3) Decomposing. 
+By conducting check stationary, Observiously, the prices of gold and silver are not staionary. To make the data stationary, three different methods can be used, 1) Exponential Average, 2) Differencing, 3) Decomposing.
 
 ### MODEL FORECASTING:
 
 ● Linear Regression
 
-I  first tried a simple regression model. It is a multiple regression model with
-input parameters as the moving average of the past 2 days and the past 5 days. The resulted R square is 70% for gold prediction, which is not bad, while RMSE is 8.02, which is not small difference compared with actual price. The R square is quite sensitive to the chosen window size of moving average. Other methods, such as grid search for optimal window size, can be potentially used. But in this analysis, I used linear regression just for the purpose of exploring. 
+I  first tried a simple regression model. It is a multiple regression model with input parameters as the moving average of the past 2 days and the past 5 days. The resulted R square is 75% for gold prediction with a RSME of 8.78, and a mean absolute percentage error (MAPE) of 0.44% for the testing data. For silver, the R square is 78% with a MAPE of 0.6%. 
+
+However, the R square is quite sensitive to the chosen window size of moving average. Other methods, such as grid search for optimal window size, can be potentially used. But in this analysis, I used linear regression just for the purpose of exploring and I focused more on later SARIMA model, which is commonly used method for times series data model for prediction. 
 
 ● SARIMA model
 
-I model this data using a SARIMA model. A SARIMA model stands for a Seasonal ARIMA model. SARIMA Model is better over a simple ARIMA model when there is seasonal data. I.e. the timeseries data has repeating cycles. I observe that the model fits much better than any of the previous models.
+The prices of gold and silver are seasonality based on statioanary test. SARIMA Model is better over a simple ARIMA model when there is seasonality in the data. Seasonal Autoregressive Integrated Moving Average, SARIMA is an extension of ARIMA that explicitly supports univariate time series data with a seasonal component. It adds three new hyperparameters to specify the autoregression (AR), differencing (I) and moving average (MA) for the seasonal component of the series, as well as an additional parameter for the period of the seasonality. In the stationarity tests for both gold and silver, seasonality is found.
 
-Below are the results and the diagnostics of the model.We see that the R square value is 73% which is acceptable and the RMS Error has
-reduced to 1715 from 5000, which is a good sign.
+In the test data, the mean absolute percentage error was used as metric to evalaute the model performance. It showed that 0.96% and 1.85% and mean absolute percentage error were estimated for gold price and silver price. 
 
 ● SELECTION of BEST MODEL
-Mean Absolute Percentage Error（MAPE) was considered as the selection of the best model from liner regression model and SARIMA model. The result shows that the MAPE of 
+I MAPE as evaluation metric for models when comparing liner regression model and SARIMA model. The result shows that the MAPE of linear regression model is less than SARIMA model when predicting the price of silver. However, the MAPE of SARMA model is larger than the linear regression model when predicting the price of gold. In other word. The optimum model for predicting silver silver is linear regression, and the optimum model for predicting gold is SARIMA model.
 
 ### FINDING TRENDS:
 
@@ -65,5 +64,7 @@ I was trying to find the interesting trends in the price fluctuation. Interestin
 Finally, the predicted gold price with almost 0.44% Mean Absolute Percentage Error for linear regression model and 0.95% Mean Absolute Percentage Error with SARIMA model. For Silver, 0.6% and 1.85% Mean Absolute Percentage Error for linear regressio model and SARIMA model.
 
 For future work, we can use and build upon our existing model to build a recommendation system suggesting the users the right time to buy and sell gold for people who take interest in investing in gold. What I found was that the trend of gold and silver are very close. Also, the peak price of gold and silver occured near the September, and the lowest price is near the middle of May. For the further analysis, for the potential investigation, we can collect all the historical data and analyze whether this patten was existing in every years. 
+
+ALso we also can change the metrics of our model performance to select the best model depending on the business target. Or using grid search to find the optimum parameter for each model. 
 
 Although ARIMA/SARIMA is commonly used model for rare metal (gold or silver) price prediciton, other existing research work also has been done to predict gold price using different models, such as Rolling and recursive neural network models by Antonino P. (https://www.sciencedirect.com/science/article/pii/S1042444X08000030) or Artificial Neural Network by Hossein M. (https://www.semanticscholar.org/paper/Modeling-Gold-Price-via-Artificial-Neural-Network-Mombeini-Yazdani-Chamzini/0fc93f118843be44345f3c9116793f3d824d4d85). These two papers can be interesting to take a look. 
