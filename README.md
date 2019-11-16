@@ -60,7 +60,7 @@ I used MAPE as evaluation metric for models when comparing liner regression mode
 
 ### OBSERVATIONS and CONCLUSIONS:
 
-**1. SARIMA model gives Mean Absolute Percentage Error (MAPE) of 0.96% and 1.85%, respectively for gold price and silver price predictions. ** 
+**1. SARIMA model gives Mean Absolute Percentage Error (MAPE) of 0.96% and 1.85%, respectively for gold price and silver price predictions.** 
 
  **2. By looking at the overall trend, we can see that gold price starts from ~$1300, kept relatively steady around $1320, decreased below $1300 between May and June, then begins to increases from June onward, hit to a peak about $1550, and then begins to decrease again, but still remains at the level of ~$1450, which is still at higher end. This whole changing trend is quite interesting; this trend also applies to silver, meaning gold and silver prices are probably quite highly correlated, which is not surprising. I can think of several factors that might influenced these change points.** 
    - **This trend actually aligns quite well with the trend I see in some stock prices (oil or big corporations), which is reasonable.** 
